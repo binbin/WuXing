@@ -347,14 +347,14 @@ const origin_sizhdizhi = [
 const sizhudizhi = {}
 
 origin_sizhdizhi.forEach((n,i)=>{
-    const feng = {};
+    const rate = {};
     ["寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥", "子", "丑"].forEach((item,index)=>{
-        feng[item]= n[index+3]
+        rate[item]= n[index+3]
     })
     const obj = {
       cang: n[1],
       shu: n[2],
-      feng: feng,
+      rate: rate,
     };
     if (!sizhudizhi[n[0]]) {
       sizhudizhi[n[0]] = [obj];
@@ -377,13 +377,13 @@ origin_sizhdizhi.forEach((n,i)=>{
 ]
 const sizhutiangan = {};
 origin_sizhutiangan.forEach((n,i)=>{
-    const feng = {};
+    const rate = {};
     ["寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥", "子", "丑"].forEach((item, index)=>{
-        feng[item] = n[index + 2];
+        rate[item] = n[index + 2];
     })
     const obj = {
       shu: n[1],
-      feng: feng,
+      rate: rate,
     };
     if (!sizhutiangan[n[0]]) {
       sizhutiangan[n[0]] = [obj];
@@ -404,10 +404,10 @@ function Rate({ gzYear, gzMonth, gzDay, gzTime }) {
   };
   txts.forEach((txt, index) => {
     sizhutiangan[txt.charAt(0)].forEach((n, i) => {
-      result[n["shu"]] += n["feng"][mon];
+      result[n["shu"]] += n["rate"][mon];
     });
     sizhudizhi[txt.charAt(1)].forEach((n, i) => {
-      result[n["shu"]] += n["feng"][mon];
+      result[n["shu"]] += n["rate"][mon];
     });
   });
   return result;

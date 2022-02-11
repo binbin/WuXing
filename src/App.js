@@ -7,7 +7,7 @@ import sizhudefeng from "./sizhudefeng";
 function App() {
 
   // console.log(sizhudefeng);
-  const [df, setDf] = useState([]);
+  const [rate, setRate] = useState([]);
   const textElement = useRef();
   const handleBtn=()=>{
     const text=textElement.current.value
@@ -23,7 +23,7 @@ function App() {
         gzTime: n[6] + n[7],
       });
     })
-    setDf(data.map((item) => sizhudefeng(item)));
+    setRate(data.map((item) => sizhudefeng(item)));
 
   }
 
@@ -49,7 +49,7 @@ function App() {
           计算
         </button>
       </div>
-      {df.length>0 ? (
+      {rate.length>0 ? (
         <table className="table table-bordered table-hover">
           <thead>
             <tr>
@@ -59,7 +59,7 @@ function App() {
               <th>火</th>
               <th>土</th>
             </tr>
-            {df.map((item) => {
+            {rate.map((item) => {
               return (
                 <tr>
                   <td>{item["金"].toFixed(2)}</td>
